@@ -362,9 +362,7 @@ export class AppComponent {
       }
     ]
   };
-  // City Names
-  City: any = ["Florida", "South Dakota", "Tennessee", "Michigan"];
-
+  
   constructor(public fb: FormBuilder) {}
 
   /*########### Form ###########*/
@@ -379,22 +377,12 @@ export class AppComponent {
     console.log(this.registrationForm.get("selectedRule").value.triggers);
     this.TriggerData = this.registrationForm.get("selectedRule").value.triggers;
     this.registrationForm.get('selectedTrigger').setValue('');
-
-    // this.selectedTrigger = this.testDate.allowedRules.filter(ts => ts.name = this.registrationForm.get('selectedRule').value);
-    // this.registrationForm.setControl('selectedRule','');
-    // this.selectedRule.setValue(e.target.value, {
-    //   onlySelf: true
-    // })
   }
 
   triggerChange() {
 
   }
-  // Getter method to access formcontrols
-  get cityName() {
-    return this.registrationForm.get("cityName");
-  }
-
+ 
   /*########### Template Driven Form ###########*/
   onSubmit() {
     this.isSubmitted = true;
