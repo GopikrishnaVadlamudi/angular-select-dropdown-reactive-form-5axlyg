@@ -1,0 +1,37 @@
+<div class="jumbotron text-center">
+	<h1 class="display-5">
+		Angular Select Dropdown
+	</h1>
+</div>
+
+<div class="container">
+	<div class="row custom-wrapper">
+		<div class="col-md-12">
+
+			<!-- Form starts -->
+			<form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+				<div class="group-gap">
+					<div class="d-block my-3">
+
+						<div class="mb-3">
+							<select class="custom-select" (change)="ruleChange(selectedRule)" formControlName="selectedRule">
+              <option *ngFor="let rule of testDate.allowedRules" [ngValue]="rule">{{rule.name}}</option>
+            </select>
+{{testRule}}
+							<select class="custom-select" (change)="trigger($event)" formControlName="selectedTrigger">
+              <option *ngFor="let city of TriggerData" [ngValue]="city">{{city.name}}</option>
+            </select>
+							<!-- error block -->
+							
+						</div>
+
+					</div>
+				</div>
+
+				<!-- Submit Button -->
+				<button type="submit" class="btn btn-danger btn-lg btn-block">Submit</button>
+			</form><!-- Form ends -->
+
+		</div>
+	</div>
+</div>
