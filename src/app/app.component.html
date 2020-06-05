@@ -17,8 +17,9 @@
 							<select class="custom-select" (change)="ruleChange(selectedRule)" formControlName="selectedRule">
               <option *ngFor="let rule of testDate.allowedRules" [ngValue]="rule">{{rule.name}}</option>
             </select>
-{{testRule}}
-							<select class="custom-select" (change)="trigger($event)" formControlName="selectedTrigger">
+
+							<select class="custom-select" (change)="triggerChange()" formControlName="selectedTrigger"
+              *ngIf="TriggerData">
               <option *ngFor="let city of TriggerData" [ngValue]="city">{{city.name}}</option>
             </select>
 							<!-- error block -->
