@@ -362,27 +362,58 @@ export class AppComponent {
       }
     ]
   };
-  
+
   constructor(public fb: FormBuilder) {}
 
   /*########### Form ###########*/
   registrationForm = this.fb.group({
     selectedRule: ["", [Validators.required]],
-    selectedTrigger: ["", [Validators.required]]
+    selectedTrigger: ["", [Validators.required]],
+    selectedAttributes: ["", [Validators.required]],
+    selectedAllowedActions: ["", [Validators.required]],
+    selectedActions: ["",[Validators.required]]
   });
 
   TriggerData;
+  AllowedActionsData;
   // Choose city using select dropdown
   ruleChange(e) {
-    console.log(this.registrationForm.get("selectedRule").value.triggers);
-    this.TriggerData = this.registrationForm.get("selectedRule").value.triggers;
-    this.registrationForm.get('selectedTrigger').setValue('');
+    let selectedRuleData = this.registrationForm.get("selectedRule").value;
+    this.TriggerData = selectedRuleData.triggers;
+    this.AllowedActionsData = selectedRuleData.allowedActions;
+    this.registrationForm.get("selectedTrigger").setValue("");
+    this.registrationForm.get("selectedAllowedActions").setValue("");
+    this.registrationForm.get("selectedActions").setValue("");
   }
+
+  AttributesData;
 
   triggerChange() {
+    console.log(this.registrationForm.get("selectedTrigger").value.attributes);
+    this.AttributesData = this.registrationForm.get(
+      "selectedTrigger"
+    ).value.attributes;
+    this.registrationForm.get("selectedAttributes").setValue("");
+  }
+
+  attributesChange() {
+    console.log(this.registrationForm.get("selectedAttributes").value);
+  }
+
+ActionsData;
+
+  allowedActionsChange() {
+    console.log(this.registrationForm.get("selectedAllowedActions").value.actions);
+    this.ActionsData = this.registrationForm.get(
+      "selectedAllowedActions"
+    ).value.actions;
+    this.registrationForm.get("selectedActions").setValue("");
+  }
+
+  actionsChange(){
 
   }
- 
+
   /*########### Template Driven Form ###########*/
   onSubmit() {
     this.isSubmitted = true;

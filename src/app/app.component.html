@@ -14,18 +14,51 @@
 					<div class="d-block my-3">
 
 						<div class="mb-3">
-							<select class="custom-select" (change)="ruleChange(selectedRule)" formControlName="selectedRule">
+							<div>
+								<label> Rule</label>
+								<select class="custom-select" (change)="ruleChange(selectedRule)" formControlName="selectedRule">
+             <option value="" disabled selected>Rule</option>
               <option *ngFor="let rule of testDate.allowedRules" [ngValue]="rule">{{rule.name}}</option>
             </select>
+							</div>
 
-							<select class="custom-select" (change)="triggerChange()" formControlName="selectedTrigger"
-              *ngIf="TriggerData">
+							<div *ngIf="TriggerData">
+								<label> Trigger</label>
+								<select class="custom-select" (change)="triggerChange()" formControlName="selectedTrigger"
+              >
+              <option value="" disabled selected>Trigger</option>
               <option *ngFor="let city of TriggerData" [ngValue]="city">{{city.name}}</option>
             </select>
-							<!-- error block -->
-							
-						</div>
+								<!-- error block -->
+							</div>
 
+							<div *ngIf="AttributesData">
+								<label> Attributes</label>
+								<select class="custom-select" (change)="attributesChange()" formControlName="selectedAttributes"
+              >
+              <option value="" disabled selected>Attributes</option>
+              <option *ngFor="let city of AttributesData" [ngValue]="city">{{city.name}}</option>
+              </select>
+							</div>
+
+							<div *ngIf="AllowedActionsData">
+								<label> Allowed Actions</label>
+								<select class="custom-select" (change)="allowedActionsChange()" formControlName="selectedAllowedActions"
+              >
+              <option value="" disabled selected>Allowed Actions</option>
+              <option *ngFor="let city of AllowedActionsData" [ngValue]="city">{{city.name}}</option>
+            </select>
+							</div>
+
+							<div *ngIf="ActionsData">
+								<label> Actions</label>
+								<select class="custom-select" (change)="actionsChange()" formControlName="selectedActions"
+              >
+              <option value="" disabled selected>Actions</option>
+              <option *ngFor="let city of ActionsData" [ngValue]="city">{{city.name}}</option>
+            </select>
+							</div>
+						</div>
 					</div>
 				</div>
 
